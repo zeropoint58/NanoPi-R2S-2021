@@ -93,7 +93,7 @@ svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder-tunnel
 svn co https://github.com/openwrt/luci/trunk/applications/luci-app-wireguard
 
 # Add OpenAppFilter
-#git clone --depth=1 https://github.com/destan19/OpenAppFilter
+git clone --depth=1 https://github.com/destan19/OpenAppFilter
 popd
 
 # Add CPUInfo
@@ -165,7 +165,7 @@ sed -i '/uci commit system/i\uci set system.@system[0].hostname='FusionWrt'' pac
 sed -i "s/OpenWrt /DHDAXCW build $(TZ=UTC-8 date "+%Y.%m.%d") @ FusionWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 # Test kernel 5.10
-sed -i 's/5.4/5.10/g' target/linux/rockchip/Makefile
+#sed -i 's/5.4/5.10/g' target/linux/rockchip/Makefile
 
 # Custom configs
 echo -e " DHDAXCW's FusionWrt built on "$(date +%Y.%m.%d)"\n -----------------------------------------------------" >> package/base-files/files/etc/banner
