@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: NanoPi R2S FusionWrt_Beta
+name: NanoPi R2S FusionWrt_Stable
 
 on:
   repository_dispatch:
