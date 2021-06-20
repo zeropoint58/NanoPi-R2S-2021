@@ -9,6 +9,7 @@
 ### 默认编译 
 
 - 用户名：root 密码：password 管理IP：192.168.2.1
+- x86_64固件下载 谷歌网盘 https://drive.google.com/file/d/11Qit2AAupTXkUnG66LHK550UADmTkb-R/view
 ### - beta：高大全
 ### - stable：稳定精简
 ### - WANLAN：互换 高大全
