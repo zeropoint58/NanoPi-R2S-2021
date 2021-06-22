@@ -111,7 +111,10 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-
+    - name: MOD index file
+      run: |
+         cd $OPENWRTROOT/package/lean/autocore/files/arm
+         sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:YouTube 频道%></td><td><a href="https://www.youtube.com/c/BIGdongdong/featured"><%:BIGDONGDONG%></a></td></tr>' index.htm
     - name: Compile Packages
       id: compile
       run: |
