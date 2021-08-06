@@ -54,10 +54,7 @@ jobs:
         git config --global user.name "GitHub"
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        # chmod +x ../patches/lean/*
-        # cp ../patches/lean/108-rk3328-opp-added-new-cpu-freq-1.6Ghz.patch target/linux/rockchip/patches-5.4
-        rm -rf ./package/kernel/mac80211
-        svn co https://github.com/immortalwrt/immortalwrt/branches/master/package/kernel/mac80211 package/kernel/mac80211
+
     - name: Update Feeds
       id: update
       run: |
