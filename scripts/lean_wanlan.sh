@@ -74,7 +74,20 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/pa
 svn co https://github.com/281677160/openwrt-package/trunk/feeds/luci/applications/luci-app-smartdns
 svn co https://github.com/281677160/openwrt-package/trunk/feeds/packages/net/smartdns
 
+# Add apk (Apk Packages Manager)
+svn co https://github.com/openwrt/packages/trunk/utils/apk
+
+# Add luci-udptools
+svn co https://github.com/zcy85611/Openwrt-Package/trunk/luci-udptools
+svn co https://github.com/zcy85611/Openwrt-Package/trunk/udp2raw
+svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder-tunnel
+
+# Add OpenAppFilter
+git clone --depth=1 https://github.com/destan19/OpenAppFilter
+popd
+
 # Add cpufreq
+rm -rf package/lean/luci-app-cpufreq
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
 ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
 sed -i 's,1608,1800,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
@@ -89,19 +102,6 @@ svn co https://github.com/openwrt/luci/branches/openwrt-18.06/applications/luci-
 svn co https://github.com/QiuSimons/OpenWrt_luci-app/trunk/others/luci-app-tencentddns package/lean/luci-app-tencentddns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-aliddns feeds/luci/applications/luci-app-aliddns
 ln -sf ../../../feeds/luci/applications/luci-app-aliddns ./package/feeds/luci/luci-app-aliddns
-
-# Add apk (Apk Packages Manager)
-svn co https://github.com/openwrt/packages/trunk/utils/apk
-
-# Add luci-udptools
-svn co https://github.com/zcy85611/Openwrt-Package/trunk/luci-udptools
-svn co https://github.com/zcy85611/Openwrt-Package/trunk/udp2raw
-svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder-tunnel
-
-# Add OpenAppFilter
-git clone --depth=1 https://github.com/destan19/OpenAppFilter
-popd
-
 # Add luci-app-ddnsto
 pushd package/network/services
 git clone --depth=1 https://github.com/linkease/ddnsto-openwrt
