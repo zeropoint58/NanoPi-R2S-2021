@@ -20,7 +20,7 @@
  - 感觉很热  就加风扇，推荐 风扇6cm×6cm，薄1cm，usb也行 或者端子线zh1.5
  - 同时兼容r2c设备
 ### 更新日志 8.12
-- 增加对r2c的支持，同时兼容r2c。或者去那边下[NanoPi-R2C专用项目] (https://github.com/DHDAXCW/NanoPi-R2C)
+- 增加对r2c的支持，同时兼容r2c。或者去那边下[NanoPi-R2C专用项目](https://github.com/DHDAXCW/NanoPi-R2C)
 - 新增cpu控制器，方便调整频率
 - 新增对r2s超频至1.6GHz  准备加风扇吧！
 - 更改内核对低速TF卡的优化支持
