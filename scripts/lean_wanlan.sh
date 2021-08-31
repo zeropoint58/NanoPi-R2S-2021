@@ -5,6 +5,11 @@ pushd package/lean
 git clone --depth=1 https://github.com/fw876/helloworld
 popd
 
+# Add luci-app-smartdns & smartdns
+#pushd package/lean
+#git clone --depth 1 https://github.com/DHDAXCW/smartdns-le.git
+#popd
+
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
@@ -29,9 +34,6 @@ git clone --depth=1 https://github.com/ysc3839/luci-proto-minieap
 # Add luci-app-bypass
 # git clone https://github.com/garypang13/luci-app-bypass.git
 
-# Add ServerChan
-git clone --depth=1 https://github.com/tty228/luci-app-serverchan
-
 # Add OpenClash
 git clone --depth=1 -b master https://github.com/vernesong/OpenClash
 
@@ -43,7 +45,6 @@ git clone --depth=1 https://github.com/NateLol/luci-app-oled
 
 # Add luci-app-adguardhome
 svn co https://github.com/Lienol/openwrt/trunk/package/diy/luci-app-adguardhome
-#svn co https://github.com/Lienol/openwrt/trunk/package/diy/adguardhome
 
 # Add luci-app-diskman
 git clone --depth=1 https://github.com/SuLingGG/luci-app-diskman
@@ -73,6 +74,8 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/pa
 # Add luci-app-smartdns & smartdns
 svn co https://github.com/281677160/openwrt-package/trunk/feeds/luci/applications/luci-app-smartdns
 svn co https://github.com/281677160/openwrt-package/trunk/feeds/packages/net/smartdns
+# svn co https://github.com/OpenWrt-Actions/OpenWrt-Packages/trunk/smartdns
+# svn co https://github.com/OpenWrt-Actions/OpenWrt-Packages/trunk/luci-app-smartdns
 
 # Add apk (Apk Packages Manager)
 svn co https://github.com/openwrt/packages/trunk/utils/apk
@@ -102,6 +105,7 @@ svn co https://github.com/openwrt/luci/branches/openwrt-18.06/applications/luci-
 svn co https://github.com/QiuSimons/OpenWrt_luci-app/trunk/others/luci-app-tencentddns package/lean/luci-app-tencentddns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-aliddns feeds/luci/applications/luci-app-aliddns
 ln -sf ../../../feeds/luci/applications/luci-app-aliddns ./package/feeds/luci/luci-app-aliddns
+
 # Add luci-app-ddnsto
 pushd package/network/services
 git clone --depth=1 https://github.com/linkease/ddnsto-openwrt
@@ -120,8 +124,10 @@ popd
 # Mod zzz-default-settings
 pushd package/lean/default-settings/files
 sed -i '/http/d' zzz-default-settings
-export orig_version="$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')"
-sed -i "s/${orig_version}/${orig_version} ($(date +"%Y.%m.%d"))/g" zzz-default-settings
+sed -i '/18.06/d' zzz-default-settings
+export orig_version=$(cat "zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
+export date_version=$(date -d "$(rdate -n -4 -p ntp.aliyun.com)" +'%Y-%m-%d')
+sed -i "s/${orig_version}/${orig_version} ${date_version}/g" zzz-default-settings
 popd
 
 # Fix libssh
@@ -153,6 +159,9 @@ pushd po2lmo
 make && sudo make install
 popd
 
+rm -rf ./package/kernel/linux/modules/video.mk
+wget -P package/kernel/linux/modules/ https://github.com/immortalwrt/immortalwrt/raw/master/package/kernel/linux/modules/video.mk
+
 # Change default shell to zsh
 sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 
@@ -160,13 +169,9 @@ sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='FusionWrt'' package/lean/default-settings/files/zzz-default-settings
 sed -i "s/OpenWrt /DHDAXCW $(TZ=UTC-8 date "+%Y%m%d") @ FusionWrt /g" package/lean/default-settings/files/zzz-default-settings
-
-# Swap LAN WAN  
-sed -i 's,"eth1" "eth0","eth0" "eth1",g' target/linux/rockchip/armv8/base-files/etc/board.d/02_network  
-sed -i "s,'eth1' 'eth0','eth0' 'eth1',g" target/linux/rockchip/armv8/base-files/etc/board.d/02_network
-
+# find package/*/ feeds/*/ -maxdepth 6 -path "*luci-app-smartdns/luasrc/controller/smartdns.lua" | xargs -i sed -i 's/\"SmartDNS\")\, 4/\"SmartDNS\")\, 3/g' {} 
 # Test kernel 5.10
-#sed -i 's/5.4/5.10/g' target/linux/rockchip/Makefile
+# sed -i 's/5.4/5.10/g' target/linux/rockchip/Makefile
 
 # Custom configs
 git am $GITHUB_WORKSPACE/patches/lean/*.patch
