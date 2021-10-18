@@ -6,9 +6,9 @@
 ### 默认编译 
 - 用户名：root 密码：password 管理IP：192.168.2.1
 - x86_64固件下载 https://github.com/DHDAXCW/lede/releases
-### - beta：高大全
+### - beta：全插件
 ### - stable：稳定精简
-### - WANLAN：互换 高大全
+### - docker：docker
 - 电报群：https://t.me/DHDAXCW
 # 赏个鸡腿吧
  ![捐赠](data/2.jpg?raw=true "Title")
