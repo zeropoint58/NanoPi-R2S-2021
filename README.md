@@ -10,9 +10,7 @@
 ### - stable：稳定精简
 ### - docker：docker
 - 电报群：https://t.me/DHDAXCW
-# 赏个鸡腿吧
- ![捐赠](data/2.jpg?raw=true "Title")
-### 如果你觉得此项目对你有帮助，可以捐助我们，以鼓励项目能持续发展，更加完善
+
 # 插件展示
  ![插件展示](data/20.jpg?raw=true "Title")
 
