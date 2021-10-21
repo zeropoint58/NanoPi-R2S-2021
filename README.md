@@ -4,6 +4,7 @@
 ## 强烈推荐三星TF卡\海康TF卡。哪怕是很难刷上的固件，只有三星刷上可以开机。
 ### 默认编译 
 - 用户名：root 密码：password 管理IP：192.168.2.1
+- 固件下载：https://github.com/DHDAXCW/NanoPi-R2S-2021/releases
 - x86_64固件下载 https://github.com/DHDAXCW/lede/releases
 ### - beta：全插件
 ### - stable：稳定精简
