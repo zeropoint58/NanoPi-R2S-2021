@@ -20,6 +20,8 @@
  - 同时兼容r2c设备
 ### 更新日志 10.22
 - 为了节省打包时间，将docker版全插件，改为精简稳定docker版
+# [赏个鸡腿吧](https://afdian.net/@dhdaxcw/plan)
+### https://afdian.net/@dhdaxcw/plan
 
 ## 鸣谢
 
