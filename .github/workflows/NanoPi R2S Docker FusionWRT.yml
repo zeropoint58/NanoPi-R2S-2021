@@ -57,7 +57,13 @@ jobs:
         rm -rf package/boot/uboot-rockchip target/linux/rockchip
         svn co https://github.com/DHDAXCW/x86_64_openwrt/branches/hello/package/boot/uboot-rockchip
         svn co https://github.com/DHDAXCW/x86_64_openwrt/branches/hello/target/linux/rockchip
-
+    - name: cache
+      uses: DHDAXCW/cachewrtbuild@test
+      with:
+        ccache: 'true'
+        mixkey: ${{ env.TARGET_DEVICE_ARCH }}
+        prefix: ${{ env.WORKING_DIR }}
+        
     - name: Update Feeds
       id: update
       run: |
