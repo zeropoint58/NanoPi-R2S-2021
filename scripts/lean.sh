@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm -rf package/helloworld
+git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
@@ -8,9 +11,6 @@ pushd package/community
 git clone --depth=1 https://github.com/Lienol/openwrt-package
 rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
-
-# Add luci-app-ssr-plus
-git clone --depth=1 https://github.com/fw876/helloworld.git
 
 #Add luci-app-unblockmusic
 rm -rf ../lean/luci-app-unblockmusic
