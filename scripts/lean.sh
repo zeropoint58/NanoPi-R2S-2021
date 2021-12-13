@@ -13,6 +13,9 @@ rm -rf openwrt-package/luci-app-verysync
 rm -rf ../lean/luci-app-unblockmusic
 git clone https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git
 
+# Add luci-app-ssr-plus
+git clone --depth=1 https://github.com/fw876/helloworld.git
+
 # Add luci-app-passwall
 #git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall
 
