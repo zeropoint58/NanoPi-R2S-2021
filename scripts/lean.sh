@@ -1,8 +1,5 @@
 #!/bin/bash
 
-rm -rf package/helloworld
-git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
-
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
