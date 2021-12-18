@@ -3,6 +3,9 @@
 rm -rf ./feeds/packages/utils/runc/Makefile
 svn export https://github.com/openwrt/packages/trunk/utils/runc/Makefile ./feeds/packages/utils/runc/Makefile
 
+# Add luci-app-ssr-plus
+git clone --depth=1 https://github.com/fw876/helloworld.git
+
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
@@ -11,9 +14,6 @@ pushd package/community
 git clone --depth=1 https://github.com/Lienol/openwrt-package
 rm -rf openwrt-package/verysync
 rm -rf openwrt-package/luci-app-verysync
-
-# Add luci-app-ssr-plus
-git clone --depth=1 https://github.com/fw876/helloworld.git
 
 # Add luci-app-unblockneteasemusic
 rm -rf ../lean/luci-app-unblockmusic
