@@ -94,6 +94,7 @@ jobs:
         then
             echo "CONFIG_ALL_NONSHARED=y" >> .config
         fi
+        make defconfig
         ../scripts/modify_config.sh
         cat .config
         make download -j8
