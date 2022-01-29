@@ -19,6 +19,7 @@ wget https://raw.githubusercontent.com/lone-wind/scripts/main/onlineupdate.sh &&
 # 插件展示
  ![插件展示](data/20.jpg?raw=true "Title")
 
+
 ## 提示
  - 我的固件加了动态超频，不管热不热这是取决后台运行程序在跑什么。
  - 感觉很热  就加风扇，推荐 风扇6cm×6cm，薄1cm，usb也行 或者端子线zh1.5
