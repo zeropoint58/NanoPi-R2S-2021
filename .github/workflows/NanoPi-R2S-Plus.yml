@@ -1,4 +1,4 @@
-name: NanoPi R2S formal edition FusionWRT
+name: NanoPi-R2S-Plus
 
 on:
   repository_dispatch:
@@ -254,7 +254,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_date }} NanoPi-R2S formal edition_正式版_全插件
+          name: ${{ steps.tag.outputs.release_date }} NanoPi-R2S Plus_正式版_全插件
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
