@@ -15,8 +15,6 @@ sed -i 's,1608,1800,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-def
 sed -i 's,2016,2208,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 rm -rf ./target/linux/rockchip/armv8/base-files/etc/hotplug.d
-rm -rf ./package/kernel/linux/modules/fs.mk
-wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/LPDDR6-10000MHz/lede/master/package/kernel/linux/modules/fs.mk
 rm -rf ./target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 # Clone community packages to package/community
 mkdir package/community
@@ -191,7 +189,7 @@ sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_genera
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='FusionWrt'' package/lean/default-settings/files/zzz-default-settings
 sed -i "s/OpenWrt /DHDAXCW @ FusionWrt /g" package/lean/default-settings/files/zzz-default-settings
 # Test kernel 5.10
-sed -i 's/5.15/5.4/g' target/linux/rockchip/Makefile
+# sed -i 's/5.15/5.4/g' target/linux/rockchip/Makefile
 
 # 修复r2s phy 复位断开无响应
 # pushd target/linux/rockchip/patches-5.4
